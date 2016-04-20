@@ -32,10 +32,21 @@ FILE* create_file() {
 
 void assemble_with_nasm(char* filename) {
   FILE* fp = fopen(filename, "r");
+  if (!fp) error("Impossible d'ouvrir le fichier.");
   FILE* dest = create_file();
 
+  unsigned int length = get_file_size(fp) + 1;
+  char* buffer = malloc( length * sizeof(char) );
+  fread(buffer, sizeof(char), length - 1, fp);
   fclose(fp);
+
+  fprintf(dest, "%s\n", buffer);
+  free(buffer);
   fclose(dest);
+
+  puts("Assemblage...");
+  system("nasm -f bin -o ../8086tiny/prog.com ../build/to_be_nasmed.asm");
+  puts(" -> Assemblage: OK");
 }
 
 
@@ -44,9 +55,13 @@ int main(int argc, char *argv[] ) {
   if (argc != 2) {
     puts("[!]: Aucun fichier");
     puts("Utilisation: ljed filename.asm\n");
+    exit(-1);
   }
 
   assemble_with_nasm(argv[1]);
+  //system("../8086tiny/8086tiny bios fd.img");
+
+  system("cd ../8086tiny && ./runme");
 
   return 0;
 }
