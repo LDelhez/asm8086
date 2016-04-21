@@ -45,7 +45,7 @@ void assemble_with_nasm(char* filename) {
   fclose(dest);
 
   puts("Assemblage...");
-  system("nasm -f bin -o ../8086tiny/prog.com ../build/to_be_nasmed.asm");
+  system("nasm -f bin -o ../emulator/prog.com ../build/to_be_nasmed.asm");
   puts(" -> Assemblage: OK");
 }
 
@@ -61,7 +61,7 @@ int main(int argc, char *argv[] ) {
   assemble_with_nasm(argv[1]);
   //system("../8086tiny/8086tiny bios fd.img");
 
-  system("cd ../8086tiny && ./runme");
+  system("cd ../emulator && ./runme");
 
   return 0;
 }
