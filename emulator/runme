@@ -1,5 +1,5 @@
 #!/bin/sh
-clear
+# clear
 stty cbreak raw -echo min 0
 if [ -f hd.img ]
 then

@@ -61,6 +61,7 @@ int main(int argc, char *argv[] ) {
   assemble_with_nasm(argv[1]);
   //system("../8086tiny/8086tiny bios fd.img");
 
+  puts("---------------------------");
   system("cd ../emulator && ./runme");
 
   return 0;

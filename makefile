@@ -10,9 +10,9 @@ loader: build/prog.com
 	sleep 1
 	sudo umount /mnt/mounted
 
-ljed:
+run:
 	mkdir -p workspace
-	make -C src ljed
+	make -C src run
 
 build/prog.com: src/loader.asm
 	mkdir -p build/

@@ -1,4 +1,4 @@
 
 
-ljed: main.c
-	gcc -Wall -o ../workspace/ljed main.c
+run: main.c
+	gcc -Wall -o ../workspace/run main.c
