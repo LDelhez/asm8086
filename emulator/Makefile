@@ -11,6 +11,8 @@ OPTS_ALL=-O3 -fsigned-char -std=c99
 OPTS_SDL=`sdl-config --cflags --libs`
 OPTS_NOGFX=-DNO_GRAPHICS
 OPTS_SLOWCPU=-DGRAPHICS_UPDATE_DELAY=25000
+CC=gcc
+
 
 8086tiny: 8086tiny.c
 	${CC} 8086tiny.c ${OPTS_SDL} ${OPTS_ALL} -o 8086tiny
@@ -22,7 +24,7 @@ OPTS_SLOWCPU=-DGRAPHICS_UPDATE_DELAY=25000
 
 no_graphics: 8086tiny.c
 	${CC} 8086tiny.c ${OPTS_NOGFX} ${OPTS_ALL} -o 8086tiny
-	strip 8086tiny
+	# strip 8086tiny
 
 clean:
 	rm 8086tiny
