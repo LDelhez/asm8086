@@ -8,6 +8,11 @@
 *.gch
 *.pch
 
+8086tiny/
+build/
+workspace/*
+emulator/prog.com
+
 # Libraries
 *.lib
 *.a
