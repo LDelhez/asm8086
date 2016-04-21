@@ -11,6 +11,7 @@ loader: build/prog.com
 	sudo umount /mnt/mounted
 
 ljed:
+	mkdir -p workspace
 	make -C src ljed
 
 build/prog.com: src/loader.asm
