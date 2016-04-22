@@ -1,7 +1,7 @@
 
 
 
-all: loader emulator ljed
+all: loader emulator run
 
 loader: build/prog.com
 	sudo mkdir -p /mnt/mounted
