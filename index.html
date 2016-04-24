@@ -73,8 +73,18 @@
 </p>
 
 <h4>Mac OS</h4>
-
-(...)
+<p>
+  Asm8086 utilise The Netwide Assembler (NASM) pour assembler les codes.
+  Les fichiers d'installation sont disponibles <a href="http://www.nasm.us/pub/nasm/releasebuilds/2.12.01/macosx/">ici</a>.
+  Installez NASM et vérifiez que l'exécutable <code>nasm</code> est dans votre <code>PATH</code>.
+</p>
+<p>
+Pour utiliser asm8086 sur un Mac, vous devez compiler le code sur votre machine.
+Pour cela, téléchargez le code source <a href="https://github.com/LDelhez/asm8086/archive/v0.1.tar.gz">ici</a>.
+Décompressez l'archive, lancez un terminal et pacez vous dans le répertoire <code>src/</code>.
+Utilisez ensuite la commande <code>make run</code> pour compiler.
+Vous pouvez maintenant utiliser asm8086 comme décrit dans la section <a href="#utilisation">Utilisation</a>.
+</p>
 
 <h3>
 <a id="utilisation" class="anchor" href="#utilisation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Utilisation</h3>
@@ -89,7 +99,7 @@ Lancez ensuite un terminal, placez vous dans le répertoire <code>workspace</cod
 
 <h4>Exemple</h4>
 <p>
-  Par exemple, pour faire un programme qui fait la somme de 0x29 et de 0x19 :
+  Par exemple, pour faire un programme qui calule la somme de 0x29 et de 0x19 :
 </p>
 <ul>
   <li>Créez un fichier <code>somme.asm</code> dans le dossier <code>workspace/</code></li>
@@ -107,19 +117,19 @@ Lancez ensuite un terminal, placez vous dans le répertoire <code>workspace</cod
 </p>
 <p>
   <ul>
-    <li><code>print_bl_hex</code> : affiche le contenu de <code>bl</code> sous forme hexadécimale.</li>
-    <li><code>print_al_hex</code> : affiche le contenu de <code>al</code> sous forme hexadécimale.</li>
-    <li><code>print_bx_hex</code> : affiche le contenu de <code>bx</code> sous forme hexadécimale.</li>
-    <li><code>print_ax_hex</code> : affiche le contenu de <code>ax</code> sous forme hexadécimale.</li>
-    <li><code>print_bl_char</code> : affiche le contenu de <code>bl</code> comme caractère ASCII.</li>
-    <li><code>print_al_char</code> : affiche le contenu de <code>al</code> comme caractère ASCII.</li>
-    <li><code>print_bl_uint</code> : affiche le contenu de <code>bl</code> sous forme décimale comme nombre entier non signé.</li>
-    <li><code>print_bx_uint</code> : affiche le contenu de <code>bx</code> sous forme décimale comme nombre entier non signé.</li>
-    <li><code>print_bx_str</code> : affiche la chaine de caractères (terminée par <code>0x00</code>) à l'adresse <code>bx</code>.</li>
-    <li><code>read_al_hex</code> : place dans <code>al</code> le nombre entré sous forme hexadécimale par l'utilisateur.</li>
-    <li><code>read_bl_hex</code> : place dans <code>bl</code> le nombre entré sous forme hexadécimale par l'utilisateur.</li>
-    <li><code>read_ax_hex</code> : place dans <code>ax</code> le nombre entré sous forme hexadécimale par l'utilisateur.</li>
-    <li><code>read_bx_hex</code> : place dans <code>bx</code> le nombre entré sous forme hexadécimale par l'utilisateur.</li>
+    <li><code>call print_bl_hex</code> : affiche le contenu de <code>bl</code> sous forme hexadécimale.</li>
+    <li><code>call print_al_hex</code> : affiche le contenu de <code>al</code> sous forme hexadécimale.</li>
+    <li><code>call print_bx_hex</code> : affiche le contenu de <code>bx</code> sous forme hexadécimale.</li>
+    <li><code>call print_ax_hex</code> : affiche le contenu de <code>ax</code> sous forme hexadécimale.</li>
+    <li><code>call print_bl_char</code> : affiche le contenu de <code>bl</code> comme caractère ASCII.</li>
+    <li><code>call print_al_char</code> : affiche le contenu de <code>al</code> comme caractère ASCII.</li>
+    <li><code>call print_bl_uint</code> : affiche le contenu de <code>bl</code> sous forme décimale comme nombre entier non signé.</li>
+    <li><code>call print_bx_uint</code> : affiche le contenu de <code>bx</code> sous forme décimale comme nombre entier non signé.</li>
+    <li><code>call print_bx_str</code> : affiche la chaine de caractères (terminée par <code>0x00</code>) à l'adresse <code>bx</code>.</li>
+    <li><code>call read_al_hex</code> : place dans <code>al</code> le nombre entré sous forme hexadécimale par l'utilisateur.</li>
+    <li><code>call read_bl_hex</code> : place dans <code>bl</code> le nombre entré sous forme hexadécimale par l'utilisateur.</li>
+    <li><code>call read_ax_hex</code> : place dans <code>ax</code> le nombre entré sous forme hexadécimale par l'utilisateur.</li>
+    <li><code>call read_bx_hex</code> : place dans <code>bx</code> le nombre entré sous forme hexadécimale par l'utilisateur.</li>
 
   </ul>
 </p>
