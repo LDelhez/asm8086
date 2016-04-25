@@ -19,12 +19,13 @@ FILE* create_file() {
   FILE* dest = fopen("../build/to_be_nasmed.asm", "w");
   if (!dest) return error("Impossible d'ecrire dans ../build/"), NULL;
 
-  unsigned int length = get_file_size(src) + 1;
+  unsigned int length = get_file_size(src);
   char* buffer = malloc( length * sizeof(char) );
-  fread(buffer, sizeof(char), length - 1, src);
-  fclose(src);
+  fread(buffer, 1, length, src);
+  fwrite(buffer, 1, length, dest);
 
-  fprintf(dest, "%s\n", buffer);
+  fclose(src);
+  //fprintf(dest, "%s\n", buffer);
 
   free(buffer);
   return dest;
@@ -54,7 +55,7 @@ int main(int argc, char *argv[] ) {
 
   if (argc != 2) {
     puts("[!]: Aucun fichier");
-    puts("Utilisation: ljed filename.asm\n");
+    puts("Utilisation: run filename.asm\n");
     exit(-1);
   }
 
