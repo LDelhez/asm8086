@@ -9,6 +9,7 @@
 *.pch
 
 8086tiny/
+emulator/8086tiny
 build/
 workspace/*
 !workspace/test/
