@@ -12,13 +12,16 @@ loader: build/prog.com
 
 run:
 	mkdir -p workspace
+	mkdir -p build/
 	make -C src run
 
 build/prog.com: src/loader.asm
 	mkdir -p build/
 	nasm -f bin -o build/prog.com src/loader.asm
 
-emulator:
+emulator: emulator/8086tiny
+
+emulator/8086tiny: emulator/8086tiny.c
 	make -C emulator no_graphics
 
 clean:
