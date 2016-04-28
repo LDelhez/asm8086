@@ -18,8 +18,8 @@ loader: build/prog.com
 	sudo umount /mnt/mounted
 
 run:
-	mkdir -p workspace
 	mkdir -p build/
+	chmod +x workspace/run
 
 build/prog.com: src/loader.asm
 	mkdir -p build/
