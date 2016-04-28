@@ -1,6 +1,10 @@
 #!/bin/sh
 # clear
-stty cbreak raw -echo min 0
+if [[ "$OSTYPE" == "msys" ]]; then
+  stty cbreak -echo min 0
+else
+  stty cbreak raw -echo min 0
+fi
 if [ -f hd.img ]
 then
     ./8086tiny bios fd.img hd.img

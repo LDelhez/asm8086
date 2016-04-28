@@ -1,5 +1,12 @@
 
 
+EXE=emulator/8086tiny
+ifeq ($(OS),Windows_NT)
+	EXE=emulator/8086tiny.exe
+endif
+
+
+default: emulator run
 
 all: loader emulator run
 
@@ -13,7 +20,6 @@ loader: build/prog.com
 run:
 	mkdir -p workspace
 	mkdir -p build/
-	make -C src run
 
 build/prog.com: src/loader.asm
 	mkdir -p build/
@@ -25,4 +31,6 @@ emulator/8086tiny: emulator/8086tiny.c
 	make -C emulator no_graphics
 
 clean:
-	rm *.o *.bin *.com
+	rm -f *.o *.bin *.com
+	rm -rf build/
+	rm -f $(EXE)
