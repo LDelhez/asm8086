@@ -1,0 +1,20 @@
+#!/usr/bin/bash
+
+
+if [[ $# != 1 ]]; then
+  echo "[!]: Aucun fichier"
+  exit
+fi
+
+mkdir -p ../build/
+cat ../src/header.asm $1 > ../build/to_be_nasmed.asm
+echo "Assemblage..."
+nasm -f bin -o ../emulator/prog.com ../build/to_be_nasmed.asm
+echo "  -> Assemblage: OK"
+
+echo "-----------------------------"
+
+
+cd ../emulator
+./runme
+exit
